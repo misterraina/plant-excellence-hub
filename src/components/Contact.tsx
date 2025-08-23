@@ -14,19 +14,55 @@ const Contact = () => {
     message: ""
   });
 
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your inquiry. We'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setIsLoading(true);
+
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("message", formData.message);
+      formDataToSend.append("to", "xyz@gmail.com");
+      formDataToSend.append("from_name", "Website Contact Form");
+      formDataToSend.append("subject", `New Contact Form Submission from ${formData.name}`);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Thank you for your inquiry. We'll get back to you soon.",
+        });
+        
+        // Reset form
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        throw new Error(data.message || "Failed to send message");
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: "Error Sending Message",
+        description: "Something went wrong. Please try again or contact us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -94,6 +130,7 @@ const Contact = () => {
                         onChange={handleChange}
                         className="h-12"
                         placeholder="Enter your full name"
+                        disabled={isLoading}
                       />
                     </div>
                     <div>
@@ -109,6 +146,7 @@ const Contact = () => {
                         onChange={handleChange}
                         className="h-12"
                         placeholder="Enter your phone number"
+                        disabled={isLoading}
                       />
                     </div>
                   </div>
@@ -126,6 +164,7 @@ const Contact = () => {
                       onChange={handleChange}
                       className="h-12"
                       placeholder="Enter your email address"
+                      disabled={isLoading}
                     />
                   </div>
 
@@ -141,12 +180,28 @@ const Contact = () => {
                       onChange={handleChange}
                       className="min-h-32"
                       placeholder="Tell us about your project requirements, timeline, and any specific needs..."
+                      disabled={isLoading}
                     />
                   </div>
 
-                  <Button type="submit" variant="hero" size="lg" className="w-full">
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Message
+                  <Button 
+                    type="submit" 
+                    variant="hero" 
+                    size="lg" 
+                    className="w-full" 
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        Send Message
+                      </>
+                    )}
                   </Button>
                 </form>
               </CardContent>

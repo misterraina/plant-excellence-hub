@@ -2,6 +2,7 @@ import { ArrowLeft, GraduationCap, Users, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Footer from "@/components/Footer";
 
 const Partners = () => {
   const partners = [
@@ -9,21 +10,21 @@ const Partners = () => {
       name: "Vijay Sharma",
       qualification: "B.E (Civil)",
       role: "Partner",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+      image: "/src/assets/partners/Vijay Sharma.jpeg",
       description: "Expert in civil engineering with extensive experience in construction project management and concrete technology."
     },
     {
       name: "Vikas Syal",
       qualification: "B.E (Civil)",
       role: "Partner", 
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+      image: "/src/assets/partners/Vijay Syal.jpeg",
       description: "Specialized in structural engineering and quality control systems with a focus on sustainable construction practices."
     },
     {
       name: "Tushar Sharma",
       qualification: "B.E (Civil), M.Tech (Structural Engineering)",
       role: "Technical Partner",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
+      image: "/src/assets/partners/Tushar Sharma.jpeg",
       description: "Advanced expertise in structural engineering and research, leading our technical innovation and development initiatives."
     }
   ];
@@ -33,28 +34,28 @@ const Partners = () => {
       name: "Ms. Savita Sharma",
       qualification: "B.A LLB",
       role: "Promoter",
-      image: "https://images.unsplash.com/photo-1559941479-e0fd76127e15?w=400&q=80",
+      image: "/src/assets/partners/Savita Sharma.jpeg",
       description: "Legal and business development expertise, ensuring compliance and strategic business growth."
     },
     {
-      name: "Ms. Divya Gautam", 
+      name: "Ms. Divya Goutam", 
       qualification: "MA English",
       role: "Promoter",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
+      image: "/src/assets/partners/Divya-Goutam.jpeg",
       description: "Communications and administrative leadership, managing corporate communications and stakeholder relations."
     },
     {
       name: "Dr. Ruchi Paliwal",
       qualification: "PhD in Electronics and Communication Engineering",
       role: "Promoter",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+      image: "/src/assets/partners/Ruchi Paliwal.jpeg",
       description: "Technology innovation and research development, driving digital transformation in our operations."
     },
     {
       name: "Vikas Syal",
       qualification: "B.E (Civil)",
       role: "Promoter & Partner",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+      image: "/src/assets/partners/Vijay Syal.jpeg",
       description: "Dual role in technical operations and business development, bridging engineering excellence with strategic growth."
     }
   ];
@@ -181,12 +182,12 @@ const Partners = () => {
         </div>
 
         {/* Company Leadership Message */}
-        <div className="mt-20 bg-gradient-to-br from-card to-secondary/50 rounded-2xl p-8 md:p-12 shadow-lg">
+        <div className="mt-20 bg-primary  rounded-2xl p-8 md:p-12 shadow-lg">
           <div className="text-center">
-            <h3 className="text-3xl font-bold text-foreground mb-6">
+            <h3 className="text-3xl font-bold text-white mb-6">
               Leadership Excellence
             </h3>
-            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg text-white/90 max-w-4xl mx-auto leading-relaxed">
               Our leadership team combines decades of technical expertise with innovative business acumen. 
               Together, we are committed to delivering exceptional concrete solutions while maintaining 
               the highest standards of quality, sustainability, and customer satisfaction.
@@ -194,6 +195,7 @@ const Partners = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
