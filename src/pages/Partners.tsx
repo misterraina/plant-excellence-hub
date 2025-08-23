@@ -10,21 +10,21 @@ const Partners = () => {
       name: "Vijay Sharma",
       qualification: "B.E (Civil)",
       role: "Partner",
-      image: "/src/assets/partners/Vijay Sharma.jpeg",
+      image: "/partners/Vijay Sharma.jpeg",
       description: "Expert in civil engineering with extensive experience in construction project management and concrete technology."
     },
     {
       name: "Vikas Syal",
       qualification: "B.E (Civil)",
       role: "Partner", 
-      image: "/src/assets/partners/Vijay Syal.jpeg",
+      image: "/partners/Vijay Syal.jpeg",
       description: "Specialized in structural engineering and quality control systems with a focus on sustainable construction practices."
     },
     {
       name: "Tushar Sharma",
       qualification: "B.E (Civil), M.Tech (Structural Engineering)",
       role: "Technical Partner",
-      image: "/src/assets/partners/Tushar Sharma.jpeg",
+      image: "/partners/Tushar Sharma.jpeg",
       description: "Advanced expertise in structural engineering and research, leading our technical innovation and development initiatives."
     }
   ];
@@ -34,28 +34,28 @@ const Partners = () => {
       name: "Ms. Savita Sharma",
       qualification: "B.A LLB",
       role: "Promoter",
-      image: "/src/assets/partners/Savita Sharma.jpeg",
+      image: "/partners/Savita Sharma.jpeg",
       description: "Legal and business development expertise, ensuring compliance and strategic business growth."
     },
     {
       name: "Ms. Divya Goutam", 
       qualification: "MA English",
       role: "Promoter",
-      image: "/src/assets/partners/Divya-Goutam.jpeg",
+      image: "/partners/Divya-Goutam.jpeg",
       description: "Communications and administrative leadership, managing corporate communications and stakeholder relations."
     },
     {
       name: "Dr. Ruchi Paliwal",
       qualification: "PhD in Electronics and Communication Engineering",
       role: "Promoter",
-      image: "/src/assets/partners/Ruchi Paliwal.jpeg",
+      image: "/partners/Ruchi Paliwal.jpeg",
       description: "Technology innovation and research development, driving digital transformation in our operations."
     },
     {
       name: "Vikas Syal",
       qualification: "B.E (Civil)",
       role: "Promoter & Partner",
-      image: "/src/assets/partners/Vijay Syal.jpeg",
+      image: "/partners/Vijay Syal.jpeg",
       description: "Dual role in technical operations and business development, bridging engineering excellence with strategic growth."
     }
   ];
