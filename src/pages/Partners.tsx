@@ -2,61 +2,50 @@ import { ArrowLeft, GraduationCap, Users, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Footer from "@/components/Footer";
 
 const Partners = () => {
-  const partners = [
-    {
-      name: "Vijay Sharma",
-      qualification: "B.E (Civil)",
-      role: "Partner",
-      image: "/partners/Vijay Sharma.jpeg",
-      description: "Expert in civil engineering with extensive experience in construction project management and concrete technology."
-    },
-    {
-      name: "Vikas Syal",
-      qualification: "B.E (Civil)",
-      role: "Partner", 
-      image: "/partners/Vijay Syal.jpeg",
-      description: "Specialized in structural engineering and quality control systems with a focus on sustainable construction practices."
-    },
-    {
-      name: "Tushar Sharma",
-      qualification: "B.E (Civil), M.Tech (Structural Engineering)",
-      role: "Technical Partner",
-      image: "/partners/Tushar Sharma.jpeg",
-      description: "Advanced expertise in structural engineering and research, leading our technical innovation and development initiatives."
-    }
-  ];
-
-  const promoters = [
+  const managementTeam = [
     {
       name: "Ms. Savita Sharma",
       qualification: "B.A LLB",
-      role: "Promoter",
+      role: "Management Team",
       image: "/partners/Savita Sharma.jpeg",
       description: "Legal and business development expertise, ensuring compliance and strategic business growth."
     },
     {
       name: "Ms. Divya Goutam", 
       qualification: "MA English",
-      role: "Promoter",
+      role: "Management Team",
       image: "/partners/Divya-Goutam.jpeg",
       description: "Communications and administrative leadership, managing corporate communications and stakeholder relations."
     },
     {
       name: "Dr. Ruchi Paliwal",
       qualification: "PhD in Electronics and Communication Engineering",
-      role: "Promoter",
+      role: "Management Team",
       image: "/partners/Ruchi Paliwal.jpeg",
       description: "Technology innovation and research development, driving digital transformation in our operations."
     },
     {
+      name: "Vijay Sharma",
+      qualification: "B.E (Civil)",
+      role: "Management Team",
+      image: "/partners/Vijay Sharma.jpeg",
+      description: "Expert in civil engineering with extensive experience in construction project management and concrete technology."
+    },
+    {
+      name: "Tushar Sharma",
+      qualification: "B.E (Civil), M.Tech (Structural Engineering)",
+      role: "Management Team",
+      image: "/partners/Tushar Sharma.jpeg",
+      description: "Advanced expertise in structural engineering and research, leading our technical innovation and development initiatives."
+    },
+    {
       name: "Vikas Syal",
       qualification: "B.E (Civil)",
-      role: "Promoter & Partner",
+      role: "Management Team", 
       image: "/partners/Vijay Syal.jpeg",
-      description: "Dual role in technical operations and business development, bridging engineering excellence with strategic growth."
+      description: "Specialized in structural engineering and quality control systems with a focus on sustainable construction practices."
     }
   ];
 
@@ -76,7 +65,7 @@ const Partners = () => {
           
           <div className="text-center text-white">
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-              Our <span className="text-accent">Partners</span> & Team
+              Our <span className="text-accent">Management</span> Team
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Meet the experienced professionals driving innovation and excellence 
@@ -87,93 +76,46 @@ const Partners = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        {/* Partners Section */}
+        {/* Management Team Section */}
         <div className="mb-20">
           <div className="flex items-center justify-center mb-12">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                 <Users className="w-6 h-6 text-primary" />
               </div>
-              <h2 className="text-3xl font-bold text-foreground">Technical Partners</h2>
+              <h2 className="text-3xl font-bold text-foreground">Management Team</h2>
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {partners.map((partner, index) => (
+            {managementTeam.map((member, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 border-0 bg-card/80 backdrop-blur-sm">
                 <CardHeader className="text-center pb-4">
                   <div className="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-primary/20">
                     <img
-                      src={partner.image}
-                      alt={partner.name}
+                      src={member.image}
+                      alt={member.name}
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                     />
                   </div>
                   <CardTitle className="text-xl font-bold text-foreground">
-                    {partner.name}
+                    {member.name}
                   </CardTitle>
                   <div className="space-y-2">
                     <div className="flex items-center justify-center space-x-2">
                       <GraduationCap className="w-4 h-4 text-primary" />
                       <span className="text-sm font-medium text-primary">
-                        {partner.qualification}
+                        {member.qualification}
                       </span>
                     </div>
                     <div className="px-3 py-1 bg-teal/10 text-teal rounded-full text-sm font-medium inline-block">
-                      {partner.role}
+                      {member.role}
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground text-center leading-relaxed">
-                    {partner.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Promoters Section */}
-        <div>
-          <div className="flex items-center justify-center mb-12">
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-teal/10 rounded-lg flex items-center justify-center">
-                <Award className="w-6 h-6 text-teal" />
-              </div>
-              <h2 className="text-3xl font-bold text-foreground">Promoters</h2>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {promoters.map((promoter, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 border-0 bg-card/80 backdrop-blur-sm">
-                <CardHeader className="text-center pb-4">
-                  <div className="w-24 h-24 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-teal/20">
-                    <img
-                      src={promoter.image}
-                      alt={promoter.name}
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardTitle className="text-lg font-bold text-foreground">
-                    {promoter.name}
-                  </CardTitle>
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-center space-x-2">
-                      <GraduationCap className="w-4 h-4 text-teal" />
-                      <span className="text-xs font-medium text-teal text-center">
-                        {promoter.qualification}
-                      </span>
-                    </div>
-                    <div className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium inline-block">
-                      {promoter.role}
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-center text-sm leading-relaxed">
-                    {promoter.description}
+                    {member.description}
                   </p>
                 </CardContent>
               </Card>
@@ -182,7 +124,7 @@ const Partners = () => {
         </div>
 
         {/* Company Leadership Message */}
-        <div className="mt-20 bg-primary  rounded-2xl p-8 md:p-12 shadow-lg">
+        <div className="mt-20 bg-gradient-to-br from-primary to-teal rounded-2xl p-8 md:p-12 shadow-lg">
           <div className="text-center">
             <h3 className="text-3xl font-bold text-white mb-6">
               Leadership Excellence
@@ -195,7 +137,6 @@ const Partners = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
