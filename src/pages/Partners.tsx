@@ -2,6 +2,7 @@ import { ArrowLeft, GraduationCap, Users, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Footer from "@/components/Footer";
 
 const Partners = () => {
   const managementTeam = [
@@ -124,7 +125,7 @@ const Partners = () => {
         </div>
 
         {/* Company Leadership Message */}
-        <div className="mt-20 bg-gradient-to-br from-primary to-teal rounded-2xl p-8 md:p-12 shadow-lg">
+        <div className="mt-20 bg-[#156a53] rounded-2xl p-8 md:p-12 shadow-lg">
           <div className="text-center">
             <h3 className="text-3xl font-bold text-white mb-6">
               Leadership Excellence
@@ -137,6 +138,7 @@ const Partners = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

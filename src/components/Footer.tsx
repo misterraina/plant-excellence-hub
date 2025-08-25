@@ -7,6 +7,16 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleDownloadBrochure = () => {
+    // Create a temporary anchor element to trigger the download
+    const link = document.createElement('a');
+    link.href = '/src/assets/Valcon Brochure.pdf';
+    link.download = 'Valcon Brochure.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const quickLinks = [
     { label: "About Us", href: "#about" },
     { label: "Testing Labs", href: "#testing" },
@@ -45,7 +55,11 @@ const Footer = () => {
               with state-of-the-art manufacturing facilities in the Tricity region.
             </p>
 
-            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+            <Button 
+              variant="outline" 
+              className="border-white text-white hover:bg-white hover:text-primary"
+              onClick={handleDownloadBrochure}
+            >
               <Download className="w-4 h-4 mr-2" />
               Download Brochure
             </Button>
@@ -98,7 +112,7 @@ const Footer = () => {
               
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-white/80 flex-shrink-0" />
-                <span className="text-white/90">+91 628 2280650</span>
+                <span className="text-white/90">+91 8447662077 </span>
               </div>
               
               <div className="flex items-center space-x-3">

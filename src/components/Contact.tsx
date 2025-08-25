@@ -71,22 +71,16 @@ const Contact = () => {
 
   const locations = [
     {
-      title: "Unit I - Mohali",
-      address: "Plot No. A8-8, Focal Point, Chanakya Industrial Area, Kurali SAS Nagar (Mohali) Punjab - 140103",
-      phone: "0628 2280650",
+      title: "Unit I - Kheri",
+      address: "Hadbast No-362, Village Kheri, SAS Nagar, Zirakpur, Punjab - 140603",
+      phone: "8447662077",
       email: "valueconcretesolutions@gmail.com"
     },
     {
-      title: "Unit II - Rurali",
-      address: "FEZ Area, Village Khairi Pandwala, Mohankpur Road, SAS Nagar (Mohali) Punjab - 140507",
-      phone: "0628 2280651",
+      title: "Unit II - Kurali",
+      address: "Industrial Area, Building No. A8-B Chanalon, Focal Point, Kurali, SAS Nagar, Punjab",
+      phone: "8447662077",
       email: "valueconcretesolutions@gmail.com"
-    },
-    {
-      title: "Head Office",
-      address: "Corporate Headquarters, Tricity Region, Punjab",
-      phone: "0628 2280652",
-      email: "info@valueconcretesolutions.com"
     }
   ];
 
@@ -115,7 +109,7 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -185,7 +179,7 @@ const Contact = () => {
                   </div>
 
                   <Button 
-                    type="submit" 
+                    onClick={handleSubmit}
                     variant="hero" 
                     size="lg" 
                     className="w-full" 
@@ -203,7 +197,7 @@ const Contact = () => {
                       </>
                     )}
                   </Button>
-                </form>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -219,7 +213,7 @@ const Contact = () => {
                     <Phone className="w-5 h-5 flex-shrink-0" />
                     <div>
                       <p className="font-medium">Call us directly</p>
-                      <p className="text-white/90">+91 628 2280650</p>
+                      <p className="text-white/90">+91 8447662077</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
@@ -255,7 +249,7 @@ const Contact = () => {
                         <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                           {location.address}
                         </p>
-                        <div className="space-y-1">
+                        <div className="space-y-1 mb-3">
                           <p className="text-sm text-foreground">
                             <span className="font-medium">Phone:</span> {location.phone}
                           </p>
@@ -263,6 +257,15 @@ const Contact = () => {
                             <span className="font-medium">Email:</span> {location.email}
                           </p>
                         </div>
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.address)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-sm text-primary hover:text-primary/80 font-medium transition-colors"
+                        >
+                          <MapPin className="w-4 h-4 mr-1" />
+                          View on Google Maps
+                        </a>
                       </div>
                     </div>
                   </CardContent>
@@ -272,19 +275,83 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Map Section */}
+        {/* Google Maps Section */}
         <div className="mt-20">
           <Card className="shadow-xl border-0 overflow-hidden">
+            <CardHeader className="bg-gradient-to-r from-primary to-teal text-white">
+              <CardTitle className="text-2xl font-bold flex items-center">
+                <MapPin className="w-6 h-6 mr-3" />
+                Find Us on the Map
+              </CardTitle>
+              <p className="text-white/90 mt-2">Our locations across the Tricity region</p>
+            </CardHeader>
             <CardContent className="p-0">
-              <div className="h-96 bg-muted flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <p className="text-lg font-medium text-foreground">Interactive Map</p>
-                  <p className="text-muted-foreground">Find our locations across the Tricity region</p>
+              <div className="relative h-96">
+                {/* Google Maps Embed - Shows Zirakpur area where both locations are */}
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27642.823691776814!2d76.79445!3d30.65321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fee906dde17c9%3A0x52e1d007b35d3b73!2sZirakpur%2C%20Punjab!5e0!3m2!1sen!2sin!4v1703234567890!5m2!1sen!2sin"
+                  width="100%"
+                  height="384"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Value Concrete Solutions Locations"
+                  className="w-full h-full"
+                />
+                
+                {/* Overlay with location info */}
+                <div className="absolute top-4 left-4 bg-card/95 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs border">
+                  <h4 className="font-semibold text-foreground mb-2">Our Locations</h4>
+                  <div className="space-y-2 text-sm text-muted-foreground">
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                      <span>Unit I - Kheri, Zirakpur</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                      <span>Unit II - Kurali</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Quick Map Access Cards */}
+        <div className="mt-8 grid md:grid-cols-2 gap-6">
+          {locations.map((location, index) => (
+            <Card key={index} className="shadow-md hover:shadow-lg transition-all duration-300 border-0 bg-gradient-to-br from-card/50 to-muted/30 backdrop-blur-sm">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-1">{location.title}</h4>
+                    <p className="text-sm text-muted-foreground">Quick Map Access</p>
+                  </div>
+                  <MapPin className="w-8 h-8 text-primary" />
+                </div>
+                <div className="flex gap-3">
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-primary hover:bg-primary/90 text-white text-sm font-medium py-2 px-4 rounded-lg text-center transition-colors duration-200 no-underline"
+                  >
+                    Google Maps
+                  </a>
+                  <a
+                    href={`https://www.google.com/maps/dir//${encodeURIComponent(location.address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-2 px-4 rounded-lg text-center transition-colors duration-200 no-underline"
+                  >
+                    Get Directions
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

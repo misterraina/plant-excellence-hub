@@ -6,7 +6,25 @@ import { useState } from "react";
 const CustomerList = () => {
   const [activeCategory, setActiveCategory] = useState(0);
 
-  const customerCategories = [
+  type CustomerCategory = {
+    title: string;
+    icon: React.ReactElement;
+    customers?: string[];
+    description?: string;
+  };
+
+  const customerCategories: CustomerCategory[] = [
+    {
+      title: "Hospitality & Group Housing",
+      icon: <Home className="w-6 h-6" />,
+      customers: [
+        "Taj Hotel (Panchkula)",
+        "Grand Orient Hotels and Resorts",
+        "The Grand Orient Hotels and Resorts",
+        "The Highlands Cooperative Group Housing Society Ltd.",
+        "Townbell India Landcraft Pvt. Ltd."
+      ]
+    },
     {
       title: "Real Estate & Developers",
       icon: <Building className="w-6 h-6" />,
@@ -42,11 +60,12 @@ const CustomerList = () => {
         "RCL Chandigarh"
       ]
     },
-    {
-      title: "Individual & Small Builders",
-      icon: <Home className="w-6 h-6" />,
-      description: "Numerous independent contractors and small-scale builders trust us for their residential and small project needs."
-    }
+    // Example of a category with description and no customers:
+    // {
+    //   title: "Individual Builders",
+    //   icon: <Star className="w-6 h-6" />,
+    //   description: "Trusted by 50+ Individual Builders"
+    // }
   ];
 
   const stats = [
@@ -131,7 +150,9 @@ const CustomerList = () => {
                       </div>
                     ) : (
                       <div className="bg-background/80 backdrop-blur-sm rounded-xl p-8 text-center">
-                        <p className="text-lg text-muted-foreground leading-relaxed mb-6">{category.description}</p>
+                        {category.description && (
+                          <p className="text-lg text-muted-foreground leading-relaxed mb-6">{category.description}</p>
+                        )}
                         <div className="inline-flex items-center space-x-2 text-primary font-medium">
                           <Star className="w-5 h-5" />
                           <span>Trusted by 50+ Individual Builders</span>

@@ -30,6 +30,16 @@ const Navbar = () => {
     return location.pathname === href;
   };
 
+  const handleDownloadBrochure = () => {
+    // Create a temporary anchor element to trigger the download
+    const link = document.createElement('a');
+    link.href = '/src/assets/Valcon Brochure.pdf';
+    link.download = 'Valcon Brochure.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -66,7 +76,12 @@ const Navbar = () => {
               </Link>
             ))}
             
-            <Button variant="hero" size="sm" className="ml-4">
+            <Button 
+              variant="hero" 
+              size="sm" 
+              className="ml-4"
+              onClick={handleDownloadBrochure}
+            >
               <Download className="w-4 h-4" />
               Download Brochure
             </Button>
@@ -95,7 +110,12 @@ const Navbar = () => {
                   {item.label}
                 </Link>
               ))}
-              <Button variant="hero" size="sm" className="w-full mt-4">
+              <Button 
+                variant="hero" 
+                size="sm" 
+                className="w-full mt-4"
+                onClick={handleDownloadBrochure}
+              >
                 <Download className="w-4 h-4" />
                 Download Brochure
               </Button>
