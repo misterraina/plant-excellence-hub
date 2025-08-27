@@ -51,14 +51,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-teal rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">V</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-xl font-bold text-foreground">VALCON</span>
-              <p className="text-xs text-muted-foreground -mt-1">Value Concrete Solutions</p>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/src/assets/logo.png" 
+              alt="VALCON - Value Concrete Solutions" 
+              className="h-10 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}

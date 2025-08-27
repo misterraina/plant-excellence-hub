@@ -1,74 +1,8 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import ContactForm from "./ContactForm"; 
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: ""
-  });
-
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      const formDataToSend = new FormData();
-      formDataToSend.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("phone", formData.phone);
-      formDataToSend.append("message", formData.message);
-      formDataToSend.append("to", "xyz@gmail.com");
-      formDataToSend.append("from_name", "Website Contact Form");
-      formDataToSend.append("subject", `New Contact Form Submission from ${formData.name}`);
-
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formDataToSend
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        toast({
-          title: "Message Sent Successfully!",
-          description: "Thank you for your inquiry. We'll get back to you soon.",
-        });
-        
-        // Reset form
-        setFormData({ name: "", email: "", phone: "", message: "" });
-      } else {
-        throw new Error(data.message || "Failed to send message");
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      toast({
-        title: "Error Sending Message",
-        description: "Something went wrong. Please try again or contact us directly.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   const locations = [
     {
       title: "Unit I - Kheri",
@@ -83,6 +17,17 @@ const Contact = () => {
       email: "valueconcretesolutions@gmail.com"
     }
   ];
+
+  // Callback functions for form submission
+  const handleFormSuccess = (data, formData) => {
+    console.log('Form submitted successfully:', data);
+    // You can add additional logic here like analytics tracking
+  };
+
+  const handleFormError = (error) => {
+    console.error('Form submission error:', error);
+    // You can add additional error handling logic here
+  };
 
   return (
     <section id="contact" className="py-20 bg-background">
@@ -99,107 +44,14 @@ const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Form */}
+          {/* Contact Form - Now using the separated component */}
           <div className="animate-slide-in-left">
-            <Card className="shadow-xl border-0 bg-card/80 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold text-foreground flex items-center">
-                  <Send className="w-6 h-6 text-primary mr-3" />
-                  Send us a Message
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                        Full Name *
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="h-12"
-                        placeholder="Enter your full name"
-                        disabled={isLoading}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                        Phone Number *
-                      </label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        required
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="h-12"
-                        placeholder="Enter your phone number"
-                        disabled={isLoading}
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email Address *
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="h-12"
-                      placeholder="Enter your email address"
-                      disabled={isLoading}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      Project Details *
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      required
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="min-h-32"
-                      placeholder="Tell us about your project requirements, timeline, and any specific needs..."
-                      disabled={isLoading}
-                    />
-                  </div>
-
-                  <Button 
-                    onClick={handleSubmit}
-                    variant="hero" 
-                    size="lg" 
-                    className="w-full" 
-                    disabled={isLoading}
-                  >
-                    {isLoading ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5 mr-2" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            <ContactForm
+              title="Send us a Message"
+              fromName="Website Contact Form"
+              onSubmitSuccess={handleFormSuccess}
+              onSubmitError={handleFormError}
+            />
           </div>
 
           {/* Contact Information */}

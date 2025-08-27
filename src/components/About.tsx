@@ -1,5 +1,5 @@
-import { CheckCircle, Target, Eye, Award, Building, Droplets, Shield, Thermometer } from "lucide-react";
-import aboutHero from '@/assets/about-hero.jpg';
+import { CheckCircle, Target, Eye, Award, Building, Droplets, Shield, Thermometer, Phone } from "lucide-react";
+import aboutHero from '@/assets/about.jpeg';
 
 const About = () => {
   return (
@@ -112,7 +112,7 @@ const About = () => {
           <h3 className="text-3xl font-bold text-foreground mb-12 text-center">
             Application Areas
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-6 rounded-xl border border-primary/20">
               <h4 className="text-lg font-semibold text-foreground mb-3">Infrastructure</h4>
               <p className="text-muted-foreground text-sm">High-performance mixes for bridges, highways, and industrial foundations.</p>
@@ -126,11 +126,6 @@ const About = () => {
             <div className="bg-gradient-to-br from-blue-500/5 to-blue-500/10 p-6 rounded-xl border border-blue-500/20">
               <h4 className="text-lg font-semibold text-foreground mb-3">Water Management</h4>
               <p className="text-muted-foreground text-sm">Long-lasting, abrasion-resistant concrete for pipes, canals, and treatment plants.</p>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-500/5 to-green-500/10 p-6 rounded-xl border border-green-500/20">
-              <h4 className="text-lg font-semibold text-foreground mb-3">Urban Development</h4>
-              <p className="text-muted-foreground text-sm">Pervious pavements and reflective surfaces for cooler, safer cities.</p>
             </div>
           </div>
         </div>
@@ -178,7 +173,7 @@ const About = () => {
               Our portfolio is built on a commitment to quality, innovation, and sustainability. We provide solutions 
               that go beyond products, supporting projects that shape stronger communities and modern cities.
             </p>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Building className="w-8 h-8 text-primary" />
@@ -194,14 +189,6 @@ const About = () => {
                 <h4 className="text-xl font-semibold text-foreground mb-3">Aggregates</h4>
                 <p className="text-muted-foreground">High-quality raw materials that ensure reliable performance in every build.</p>
               </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Target className="w-8 h-8 text-green-500" />
-                </div>
-                <h4 className="text-xl font-semibold text-foreground mb-3">Urban Development Solutions</h4>
-                <p className="text-muted-foreground">Sustainable and innovative products that enable smarter, greener growth.</p>
-              </div>
             </div>
           </div>
         </div>
@@ -211,7 +198,7 @@ const About = () => {
           <h3 className="text-3xl font-bold text-foreground mb-12 text-center">
             Sustainability Advantages
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-8 h-8 text-primary" />
@@ -235,13 +222,35 @@ const About = () => {
               <h4 className="text-lg font-semibold text-foreground mb-2">Environmental Resistance</h4>
               <p className="text-muted-foreground text-sm">Superior protection against aggressive environmental conditions.</p>
             </div>
+          </div>
+        </div>
 
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Building className="w-8 h-8 text-blue-500" />
+        {/* Contact Section */}
+        <div className="mb-20">
+          <div className="bg-gradient-to-br from-card to-secondary/30 p-8 rounded-2xl text-center">
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                <Phone className="w-6 h-6 text-primary" />
               </div>
-              <h4 className="text-lg font-semibold text-foreground mb-2">Urban Benefits</h4>
-              <p className="text-muted-foreground text-sm">Light reflection and reduced heat island effect for cooler cities.</p>
+              <h3 className="text-2xl font-bold text-foreground">Call Us Directly</h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              <a href="tel:+918447662077" className="bg-primary/5 hover:bg-primary/10 border border-primary/20 rounded-lg p-4 transition-colors duration-300">
+                <div className="font-semibold text-primary">+91 8447662077</div>
+                <div className="text-sm text-muted-foreground mt-1">Primary Contact</div>
+              </a>
+              <a href="tel:6283280650" className="bg-teal/5 hover:bg-teal/10 border border-teal/20 rounded-lg p-4 transition-colors duration-300">
+                <div className="font-semibold text-teal">6283280650</div>
+                <div className="text-sm text-muted-foreground mt-1">Support Line 1</div>
+              </a>
+              <a href="tel:6283280651" className="bg-blue-500/5 hover:bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 transition-colors duration-300">
+                <div className="font-semibold text-blue-500">6283280651</div>
+                <div className="text-sm text-muted-foreground mt-1">Support Line 2</div>
+              </a>
+              <a href="tel:6283280652" className="bg-green-500/5 hover:bg-green-500/10 border border-green-500/20 rounded-lg p-4 transition-colors duration-300">
+                <div className="font-semibold text-green-500">6283280652</div>
+                <div className="text-sm text-muted-foreground mt-1">Support Line 3</div>
+              </a>
             </div>
           </div>
         </div>

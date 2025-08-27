@@ -36,8 +36,8 @@ const TestingLabs = () => {
     {
       icon: CheckCircle,
       title: "Quality Certification",
-      description: "ISO-compliant testing procedures ensuring reliability and accuracy",
-      features: ["ISO compliance", "Certified procedures", "Accurate reporting"]
+      description: "Testing procedures ensuring reliability and accuracy",
+      features: ["Certified procedures", "Accurate reporting"]
     }
   ];
 
@@ -61,9 +61,9 @@ const TestingLabs = () => {
       applications: ["Multi-story buildings", "Insulation", "Weight reduction"]
     },
     {
-      name: "Self-Consolidating Concrete",
+      name: "Self-Compacting Concrete",
       description: "Highly flowable concrete for complex geometries and dense reinforcement",
-      strength: "25-60 MPa",
+      strength: "25-80 MPa",
       applications: ["Complex structures", "Dense reinforcement", "Architectural elements"]
     }
   ];

@@ -15,7 +15,7 @@ const Partners = () => {
     },
     {
       name: "Ms. Divya Goutam", 
-      qualification: "MA English",
+      qualification: "MA English and B.Ed",
       role: "Management Team",
       image: "/partners/Divya-Goutam.jpeg",
       description: "Communications and administrative leadership, managing corporate communications and stakeholder relations."
@@ -27,26 +27,27 @@ const Partners = () => {
       image: "/partners/Ruchi Paliwal.jpeg",
       description: "Technology innovation and research development, driving digital transformation in our operations."
     },
+    
     {
       name: "Vijay Sharma",
       qualification: "B.E (Civil)",
       role: "Management Team",
       image: "/partners/Vijay Sharma.jpeg",
-      description: "Expert in civil engineering with extensive experience in construction project management and concrete technology."
+      description: "An experienced professional with 25 years of experience in project management and advanced construction techniques, specializing in delivering cost-efficient, sustainable, and quality-driven solutions."
     },
     {
       name: "Tushar Sharma",
       qualification: "B.E (Civil), M.Tech (Structural Engineering)",
       role: "Management Team",
       image: "/partners/Tushar Sharma.jpeg",
-      description: "Advanced expertise in structural engineering and research, leading our technical innovation and development initiatives."
+      description: "A structural engineer by education with over 25 years of expertise in Ready-Mix Concrete and concrete admixtures, recognized for strong command over mix design, concrete durability, and delivering innovative, performance-driven solutions."
     },
     {
       name: "Vikas Syal",
       qualification: "B.E (Civil)",
       role: "Management Team", 
       image: "/partners/Vijay Syal.jpeg",
-      description: "Specialized in structural engineering and quality control systems with a focus on sustainable construction practices."
+      description: "A seasoned professional with over 25 years of experience in Ready-Mix Concrete (RMC) operations, specializing in production and end-to-end plant operations."
     }
   ];
 

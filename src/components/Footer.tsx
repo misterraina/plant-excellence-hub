@@ -18,10 +18,10 @@ const Footer = () => {
   };
 
   const quickLinks = [
-    { label: "About Us", href: "#about" },
-    { label: "Testing Labs", href: "#testing" },
+    { label: "About Us", href: "/about" },
+    { label: "Testing Labs", href: "testing-labs" },
     { label: "Partners", href: "/partners" },
-    { label: "Contact Us", href: "#contact" },
+    { label: "Contact Us", href: "/contact" },
   ];
 
   const services = [

@@ -1,11 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Phone } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroPlant from "@/assets/truck.jpeg";
 
 const Hero = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    element?.scrollIntoView({ behavior: "smooth" });
+  const navigate = useNavigate();
+
+  const goToContact = () => {
+    navigate('/contact');
+  };
+
+  const downloadBrochure = () => {
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement('a');
+    link.href = '/src/assets/Valcon Brochure.pdf';
+    link.download = 'Valcon Brochure.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -40,7 +52,7 @@ const Hero = () => {
               variant="hero" 
               size="lg" 
               className="text-lg px-8 py-4 h-auto"
-              onClick={scrollToContact}
+              onClick={goToContact}
             >
               Get Quote Today
               <ArrowRight className="w-5 h-5" />
@@ -50,6 +62,7 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="text-lg px-8 py-4 h-auto border-white text-white hover:bg-white hover:text-primary"
+              onClick={downloadBrochure}
             >
               <Download className="w-5 h-5" />
               Download Brochure
@@ -59,16 +72,16 @@ const Hero = () => {
           {/* Trust Indicators */}
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">25+</div>
+              <div className="text-3xl font-bold text-white mb-2">23+</div>
               <div className="text-white/80">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">500+</div>
+              <div className="text-3xl font-bold text-white mb-2">100+</div>
               <div className="text-white/80">Projects Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">2300+</div>
-              <div className="text-white/80">Cubic Meters Daily</div>
+              <div className="text-3xl font-bold text-white mb-2">100+</div>
+              <div className="text-white/80">Customers</div>
             </div>
           </div>
         </div>
