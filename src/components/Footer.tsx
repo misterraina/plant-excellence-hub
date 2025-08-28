@@ -33,6 +33,14 @@ const Footer = () => {
     "Quality Testing"
   ];
 
+  // Phone numbers array for better organization
+  const phoneNumbers = [
+    "+91 8447662077",
+    "+91 6283280650",
+    "+91 6283280651",
+    "+91 6283280652"
+  ];
+
   return (
     <footer className="bg-gradient-to-br from-primary via-primary-dark to-teal text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,18 +140,32 @@ const Footer = () => {
                 </div>
               </div>
 
+              {/* Phone Numbers - Improved Mobile-Friendly Format */}
               <div className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-white/80 flex-shrink-0 mt-1" />
-                <div className="text-white/90">
-                  <p className="text-sm">
-                    +91 8447662077 | +91 6283280650 | +91 6283280651 | +91 6283280652
-                  </p>
+                <div className="flex-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {phoneNumbers.map((phone, index) => (
+                      <a 
+                        key={index}
+                        href={`tel:${phone}`}
+                        className="text-white/90 text-sm hover:text-white transition-colors duration-200 hover:underline"
+                      >
+                        {phone}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-white/80 flex-shrink-0" />
-                <span className="text-white/90">valueconcretesolutions@gmail.com</span>
+                <a 
+                  href="mailto:valueconcretesolutions@gmail.com"
+                  className="text-white/90 hover:text-white transition-colors duration-200 hover:underline"
+                >
+                  valueconcretesolutions@gmail.com
+                </a>
               </div>
             </div>
 

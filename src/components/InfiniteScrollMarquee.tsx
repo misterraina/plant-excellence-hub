@@ -80,18 +80,21 @@ const InfiniteMarquee = ({
 }) => {
   // Auto-generate logo list from assets/logos directory
   const logoFiles = [
-    'Amayra-Group-Logo-1.png',
-    'btm-logo.png',
-    'visionindia_1653033826_282.png',
+    'alp.png',
+    'Amayra.png',
+    'arista.png',
+    'futureHeights.jpg',
+    'grandOrient.jpeg',
+    'jubilee.png',
+    'motia.png',
+    'rajCycle.png',
+    'stjGroup.png',
+    'suryacon.png',
     'Taj_Hotels_logo.svg.png',
-    'images (1).png',
-    'images (2).png',
-    'images (3).png',
-    'images (4).png',
-    'logo.png',
-    'm1128u93.jpg',
-    'images.png',
-    'Screenshot 2025-08-17 122457.png'
+    'theGrandSky.jpeg',
+    'ubberMews.png',
+    'visionIndia.png',
+    'xaviers.jpeg'
   ];
 
   const partnerLogos = logoFiles.map((filename, index) => ({

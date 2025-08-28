@@ -150,7 +150,7 @@ const Testimonials = () => {
         <InfiniteMarquee 
           title="Our Trusted Partners"
           subtitle="Building strong relationships with industry leaders"
-          speed={25}
+          speed={60}
           pauseOnHover={true}
         />
 
