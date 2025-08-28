@@ -96,7 +96,7 @@ const InfiniteMarquee = ({
 
   const partnerLogos = logoFiles.map((filename, index) => ({
     name: filename.split('.')[0].replace(/[_\-()0-9]/g, ' ').trim(),
-    logo: `/src/assets/logos/${filename}`,
+    logo: `/logos/${filename}`,
     alt: `${filename.split('.')[0]} Logo`
   }));
 
