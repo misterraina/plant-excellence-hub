@@ -53,7 +53,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/src/assets/logo.png" 
+              src="logo.png" 
               alt="VALCON - Value Concrete Solutions" 
               className="h-10 w-auto object-contain"
             />

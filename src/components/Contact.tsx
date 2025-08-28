@@ -59,31 +59,37 @@ const Contact = () => {
             {/* Quick Contact */}
             <Card className="shadow-lg border-0 bg-gradient-to-br from-primary to-teal text-white">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Get Quick Response</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium">Call us directly</p>
-                      <p className="text-white/90">+91 8447662077</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium">Email us</p>
-                      <p className="text-white/90">valueconcretesolutions@gmail.com</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Clock className="w-5 h-5 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium">Business Hours</p>
-                      <p className="text-white/90">Mon - Sat: 9:00 AM - 6:00 PM</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
+  <h3 className="text-2xl font-bold mb-6">Get Quick Response</h3>
+  <div className="space-y-4">
+    <div className="flex items-start space-x-3">
+      <Phone className="w-5 h-5 flex-shrink-0 mt-1" />
+      <div>
+        <p className="font-medium">Call us directly</p>
+        <div className="text-white/90 space-y-1">
+          <p>+91 8447662077</p>
+          <p>+91 6283280650</p>
+          <p>+91 6283280651</p>
+          <p>+91 6283280652</p>
+        </div>
+      </div>
+    </div>
+    <div className="flex items-center space-x-3">
+      <Mail className="w-5 h-5 flex-shrink-0" />
+      <div>
+        <p className="font-medium">Email us</p>
+        <p className="text-white/90">valueconcretesolutions@gmail.com</p>
+      </div>
+    </div>
+    {/* <div className="flex items-center space-x-3">
+      <Clock className="w-5 h-5 flex-shrink-0" />
+      <div>
+        <p className="font-medium">Business Hours</p>
+        <p className="text-white/90">Mon - Sat: 9:00 AM - 6:00 PM</p>
+      </div>
+    </div> */}
+  </div>
+</CardContent>
+
             </Card>
 
             {/* Locations */}

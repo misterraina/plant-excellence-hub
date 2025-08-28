@@ -40,13 +40,21 @@ const Footer = () => {
         <div className="py-16 grid lg:grid-cols-4 md:grid-cols-2 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src="/logo.png" 
+                alt="VALCON Logo" 
+                className="h-16 w-auto object-contain"
+                onError={(e) => {
+                  const img = e.target as HTMLImageElement;
+                  img.style.display = 'none';
+                  if (img.nextSibling && img.nextSibling instanceof HTMLElement) {
+                    (img.nextSibling as HTMLElement).style.display = 'flex';
+                  }
+                }}
+              />
+              <div className="hidden w-12 h-12 bg-white/10 rounded-lg items-center justify-center">
                 <span className="text-white font-bold text-xl">V</span>
-              </div>
-              <div>
-                <span className="text-2xl font-bold">VALCON</span>
-                <p className="text-sm text-white/80 -mt-1">Value Concrete Solutions</p>
               </div>
             </div>
             
@@ -100,21 +108,39 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
             <div className="space-y-4">
+              <div className="space-y-4">
+                {/* Unit I - Kheri */}
+                <div className="flex items-start space-x-3">
+                  <MapPin className="w-5 h-5 text-white/80 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-white/90 text-sm font-semibold">Unit I - Kheri</p>
+                    <p className="text-white/90 text-sm leading-relaxed">
+                      Hadbast No-362, Village Kheri, SAS Nagar, Zirakpur, Punjab - 140603
+                    </p>
+                  </div>
+                </div>
+
+                {/* Unit II - Kurali */}
+                <div className="flex items-start space-x-3">
+                  <MapPin className="w-5 h-5 text-white/80 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-white/90 text-sm font-semibold">Unit II - Kurali</p>
+                    <p className="text-white/90 text-sm leading-relaxed">
+                      Industrial Area, Building No. A8-B Chanalon, Focal Point, Kurali, SAS Nagar, Punjab
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-white/80 flex-shrink-0 mt-1" />
-                <div>
-                  <p className="text-white/90 text-sm leading-relaxed">
-                    Unit I: Plot No. A8-8, Focal Point, Chanakya Industrial Area, 
-                    Kurali SAS Nagar (Mohali) Punjab - 140103
+                <Phone className="w-5 h-5 text-white/80 flex-shrink-0 mt-1" />
+                <div className="text-white/90">
+                  <p className="text-sm">
+                    +91 8447662077 | +91 6283280650 | +91 6283280651 | +91 6283280652
                   </p>
                 </div>
               </div>
-              
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-white/80 flex-shrink-0" />
-                <span className="text-white/90">+91 8447662077 </span>
-              </div>
-              
+
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-white/80 flex-shrink-0" />
                 <span className="text-white/90">valueconcretesolutions@gmail.com</span>
@@ -122,7 +148,7 @@ const Footer = () => {
             </div>
 
             {/* Social Media */}
-            <div className="mt-8">
+            {/* <div className="mt-8">
               <h4 className="font-medium mb-4">Follow Us</h4>
               <div className="flex space-x-4">
                 <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors duration-200">
@@ -138,7 +164,7 @@ const Footer = () => {
                   <Instagram className="w-5 h-5" />
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
